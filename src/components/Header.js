@@ -8,31 +8,31 @@ export default class Header extends React.Component { // Or used the React Objec
 	  return (
 	    <header className="App-header">
 		<img src={logo} className="App-logo" alt="logo" />
-		<p>
+		{/* <p> */}
 		  {/* Added Learned about passing in parameters (strings)*/}
 		  Edit <code>src/App.js</code> and save to reload. ({this.props.title})
-		</p>
+		{/* </p> */}
 		
 		{/* Added Learned about passing in parameters (numbers)*/}
-		<div>{this.props.num}</div>
+		{/* <div>{this.props.num}</div> */}
       
 		{/* Added Learned about passing in parameters (Objects)*/}
-		<div>{this.props.myObj.a}</div>
-		<div>{this.props.myObj.b}</div>
+		{/* <div>{this.props.myObj.a}</div> */}
+		{/* <div>{this.props.myObj.b}</div> */}
       
-		{/* Added Learned about passing in parameters (Turn Objects into Strings)*/}
-		<div>{JSON.stringify(this.props.myObj.b)}</div>
+		{/* Added Learned about passing in parameters (Turn Objects into Strings) */}
+		{/* <div>{JSON.stringify(this.props.myObj.b)}</div> */}
       
 		{/* Added Learned about passing in parameters (Get Arrays)*/}
-		<div>{this.props.myArr[0]}</div>
-		<div>{this.props.myArr[1]}</div>
-		<div>{this.props.myArr[2]}</div>
+		{/* <div>{this.props.myArr[0]}</div> */}
+		{/* <div>{this.props.myArr[1]}</div> */}
+		{/* <div>{this.props.myArr[2]}</div> */}
       
       
 		{/* Added Learned about passing in parameters (Passing in functions)*/}
-		<div>{this.props.myFuncAdd(10,12)}</div>
-		<div>{this.props.myFuncSub(12,10)}</div>
-		<div>{this.props.myFuncMult(2,2)}</div>
+		{/* <div>{this.props.myFuncAdd(10,12)}</div> */}
+		{/* <div>{this.props.myFuncSub(12,10)}</div> */}
+		{/* <div>{this.props.myFuncMult(2,2)}</div> */}
       
 		<a
 		  className="App-link"

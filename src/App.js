@@ -2,52 +2,50 @@ import React, { Component } from "react";
 import './App.css';
 import ImageSlider from "./components/ImageSlider";
 import Counter from "./components/Counter"
+import Header from "./components/Header"
 
 class App extends Component {
-
   state = {
-    visible: true
-  }
+    visible: true,
+    whichComponentToShow: 'ImageSlider'
+  };
 
   render() {
-
-    // ------ Option with if /else statements
-    // if (!this.state.visible) {
-    //   return (
-    //     <div>display nothing</div>
-    //   );
-    // } 
-
-    // ------ Another Option with if / else statments
-    let slider = this.state.visible ? (
-      <ImageSlider /> 
-    ) : (
-      <Counter />
-    ); 
-
-    // ------- Set variables
-    const buttonText = this.state.visible ? 'hide' : 'show';
-
-    // const slider = this.state.visible ? (
-    //   <ImageSlider /> 
-    // ) : (
-    //   <Counter />
-    // );
-
-    return (
-      <div className="App">
-      {/* Display the variables */}
-        {slider}  
-        <button 
-          onClick={() => {
-            this.setState({visible: !this.state.visible });
+    if (this.state.whichComponentToShow === 'ImageSlider') {
+      return (
+        <div className="App">
+          <ImageSlider />
+          <button onClick={() => {
+             this.setState({ whichComponentToShow: "Counter"});
           }}
-        >
-          {/* Display the variables */}
-          {buttonText}
-        </button>
-      </div>
-    );
+          >show counter</button>
+        </div>
+      )
+    }
+    else if (this.state.whichComponentToShow === 'Counter') {
+      return (
+        <div className="App">
+          <Counter />
+            <button onClick={() => {
+              this.setState({ whichComponentToShow: "ImageSlider"});
+            }}
+            >show counter</button>
+            <button onClick={() => {
+              this.setState({ whichComponentToShow: "Header"});
+            }}
+            >show header</button>
+        </div>
+      );
+    }
+    else if (this.state.whichComponentToShow === 'Header') {
+      return (
+        <div className="App">
+          <Header />
+        </div>
+      );
+    }
+
+    return null;
   }
 }
 

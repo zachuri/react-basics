@@ -13,20 +13,20 @@ export default class Counter extends React.Component {
 	// }
 
 	// ----- This is using a Class when you want to pass in props (Starts at what the props that is passed in)
-	constructor(props) { // Constructor of class
-		super(props);
+	// constructor(props) { // Constructor of class
+	// 	super(props);
 
-		this.state = { // This is initializing the object of this state to zero
-			count: props.initialCount 
-		};
-	}
+	// 	this.state = { // This is initializing the object of this state to zero
+	// 		count: props.initialCount 
+	// 	};
+	// }
 
 
 	// ^^^^^^
-	// ----------  this will be equivalent to the constructor if nothing else is used in it
-	// state = { // This is initializing the object of this state to zero
-	// 	count: 0
-	// };
+	//----------  this will be equivalent to the constructor if nothing else is used in it
+	state = { // This is initializing the object of this state to zero
+		count: 0
+	};
 
 	// ----- Want to use the other function so we can bind it with the object
 	// handleButtonClick() {

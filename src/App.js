@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './App.css';
 import Body, { Body3, Body2} from './components/Body' // Export default --> Body // Export --> Body3, Body2
+import Counter from "./components/Counter";
 // import Header  from './components/Header' // Can rename your export Header --> MyHeader but with the same file location
 import MyHeader  from './components/Header'
 
@@ -130,6 +131,9 @@ class App extends Component {
 
         {/*Props are a way of passing data into your own custom components*/}
 
+        <Counter/>
+        <Counter initialCount={0}/>
+        <Counter initialCount={10}/>
 
       </div>
     );

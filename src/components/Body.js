@@ -1,5 +1,7 @@
 import React from 'react' // We are using JSX so we need to import react
 
+// These cannont have states because of function components not Class Components
+
 //const Body = (props) => (
 export default props => (
   <div>

@@ -1,52 +1,19 @@
 import React, { Component } from "react";
-import './App.css';
-import ImageSlider from "./components/ImageSlider";
-import Counter from "./components/Counter"
-import Header from "./components/Header"
+import "./App.css";
+import MyForm from "./components/MyForm";
 
 class App extends Component {
-  state = {
-    visible: true,
-    whichComponentToShow: 'ImageSlider'
-  };
+   state = {
+      visible: true,
+   };
 
-  render() {
-    if (this.state.whichComponentToShow === 'ImageSlider') {
+   render() {
       return (
-        <div className="App">
-          <ImageSlider />
-          <button onClick={() => {
-             this.setState({ whichComponentToShow: "Counter"});
-          }}
-          >show counter</button>
-        </div>
-      )
-    }
-    else if (this.state.whichComponentToShow === 'Counter') {
-      return (
-        <div className="App">
-          <Counter />
-            <button onClick={() => {
-              this.setState({ whichComponentToShow: "ImageSlider"});
-            }}
-            >show counter</button>
-            <button onClick={() => {
-              this.setState({ whichComponentToShow: "Header"});
-            }}
-            >show header</button>
-        </div>
+         <div className="App">
+            <MyForm />
+         </div>
       );
-    }
-    else if (this.state.whichComponentToShow === 'Header') {
-      return (
-        <div className="App">
-          <Header />
-        </div>
-      );
-    }
-
-    return null;
-  }
+   }
 }
 
 export default App;

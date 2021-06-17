@@ -4,28 +4,18 @@ export default class MyForm extends React.Component {
    state = {
       name: "ben",
       favoritePet: "",
-      remeberMe: true,
+      rememberMe: true,
       title: "Miss.",
    };
 
-   handleChange = (event) => {
+   handleChange = (event, fieldName, isCheckBox) => {
       //console.log("event.target.value");
-      this.setState({ name: event.target.value });
-   };
+      // this.setState({ name: event.target.value });
 
-   handleChangeFavoritePet = (event) => {
-      //console.log("event.target.value");
-      this.setState({ favoritePet: event.target.value });
-   };
-
-   handleCheck = (event) => {
-      // console.log("called");
-      this.setState({ remeberMe: event.target.checked }); // use check instead of value
-   };
-
-   handleSelect = (event) => {
-      // console.log("called");
-      this.setState({ title: event.target.value }); // use check instead of value
+      //console.log("event.target.fieldName");
+      this.setState({
+         [fieldName]: isCheckBox ? event.target.checked : event.target.value,
+      });
    };
 
    handleSubmit = () => {
@@ -37,24 +27,35 @@ export default class MyForm extends React.Component {
       return (
          <div>
             {/* input words */}
-            <input value={this.state.name} onChange={this.handleChange} />
+            <input
+               value={this.state.name}
+               onChange={(event) => this.handleChange(event, "name")}
+            />
 
             {/* input textarea words */}
             <textarea
                value={this.state.favoritePet}
-               onChange={this.handleChangeFavoritePet} // Listeners
+               onChange={(event) => this.handleChange(event, "favoritePet")}
+               //onChange={this.handleChangeFavoritePet} // Listeners
             />
 
             {/* input that is a checkbox */}
             <input
                type="checkbox"
-               checked={this.state.remeberMe}
-               onChange={this.handleCheck} // Called Listeners
+               checked={this.state.rememberMe}
+               // onChange={this.handleCheck} // Called Listeners
+               onChange={
+                  (event) => this.handleChange(event, "rememberMe", true) // This one will have 3 parameters/ others will be undefined
+               }
             />
 
             {/* select field */}
             <div>
-               <select value={this.state.title} onChange={this.handleSelect}>
+               {/* <select value={this.state.title} onChange={this.handleSelect}> */}
+               <select
+                  value={this.state.title}
+                  onChange={(event) => this.handleChange(event, "title")}
+               >
                   <option>Mr.</option>
                   <option>Miss.</option>
                   <option>Ms.</option>

@@ -27,6 +27,18 @@ export default class FetchRandomUser extends React.Component {
          return <div>didn't get a person </div>;
       }
 
+      const peopleJsx = this.state.people.map((person) => (
+         //Mapping over the datas
+         //Need a unique key
+         //<div key={'some-person-${i}'}> this is a last resort to create an id
+         <div key={person.login.uuid}>
+            <div>{person.name.title}</div>
+            <div>{person.name.first}</div>
+            <div>{person.name.last}</div>
+            <img src={person.picture.large} alt="random user" />
+         </div>
+      ));
+
       return (
          // <div>
          //    {this.state.loading || !this.state.person ? (
@@ -44,19 +56,21 @@ export default class FetchRandomUser extends React.Component {
          //    )}
          // </div>
 
-         <div>
-            {this.state.people.map((person) => (
-               //Mapping over the datas
-               //Need a unique key
-               //<div key={'some-person-${i}'}> this is a last resort to create an id
-               <div key={person.login.uuid}>
-                  <div>{person.name.title}</div>
-                  <div>{person.name.first}</div>
-                  <div>{person.name.last}</div>
-                  <img src={person.picture.large} alt="random user" />
-               </div>
-            ))}
-         </div>
+         // <div>
+         //    {this.state.people.map((person) => (
+         //       //Mapping over the datas
+         //       //Need a unique key
+         //       //<div key={'some-person-${i}'}> this is a last resort to create an id
+         //       <div key={person.login.uuid}>
+         //          <div>{person.name.title}</div>
+         //          <div>{person.name.first}</div>
+         //          <div>{person.name.last}</div>
+         //          <img src={person.picture.large} alt="random user" />
+         //       </div>
+         //    ))}
+         // </div>
+
+         <div>{peopleJsx}</div>
       );
    }
 }
